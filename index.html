@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script type="text/javascript">
+        let text = "parent"
+        let box = {
+            display: 'flex',
+            flexDirection: 'row',
+            border : "2px solid black",
+            width:"100%px",
+            height:"200px",
+            backgroundColor:"#FFE4C4",
+            fontSize:"30px"
+        }
+
+        let styleDiv = {
+            common:{
+            border:"2px solid black",
+            width:"120px",
+            height:"120px",
+            margin:"35px",
+            marginLeft:"120px",
+            fontWeight:"bold",
+            fontSize:"30px"
+            },
+            colored:{
+                backgroundColor:"red"
+            },
+            colored1:{
+                backgroundColor:"yellow"
+            },
+            colored2:{
+                backgroundColor:"green"
+            },
+            colored3:{
+                backgroundColor:"purple"
+            }
+        }
+    
+
+        let flexBox = React.createElement('div',{
+           
+            style:box
+        },[
+            text,
+            React.createElement("div",{ style:{...styleDiv.common,...styleDiv.colored}},1),
+            React.createElement("div",{style:{...styleDiv.common,...styleDiv.colored1}},2),
+            React.createElement("div",{style:{...styleDiv.common,...styleDiv.colored2}},3),
+            React.createElement("div",{style:{...styleDiv.common,...styleDiv.colored3}},4)
+        ])
+
+        let reactRoot = ReactDOM.createRoot(document.getElementById("root"))
+
+        reactRoot.render(flexBox)
+    </script>
+</body>
+</html>
